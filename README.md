@@ -11,16 +11,16 @@
 
 
 ### ROBTOICS file list 
-detect.py : 실행 파일
-detect_real_time.py : 처리 최적화 검사 파일
-helper : 모델 필요 수학 함수 및 셋업 함수 저장 파일 
+- detect.py : 실행 파일
+- detect_real_time.py : 처리 최적화 검사 파일
+- helper : 모델 필요 수학 함수 및 셋업 함수 저장 파일 
 
 ### Robotics Folder list 
-data : 테스트 데이터 폴더
-model : 모델 폴더
-result : 결과 저장 폴더
-setup : ARM based gpu 가속 기능 확인 폴더 for mac 
+- data : 테스트 데이터 폴더
+- model : 모델 폴더
+- result : 결과 저장 폴더
+- setup : ARM based gpu 가속 기능 확인 폴더 for mac 
 
 
 ## Reference Code Link
-Yolov8 with DeepSORT Algorithms : https://thepythoncode.com/article/real-time-object-tracking-with-yolov8-opencv
+- Yolov8 with DeepSORT Algorithms : https://thepythoncode.com/article/real-time-object-tracking-with-yolov8-opencv
