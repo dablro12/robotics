@@ -6,7 +6,8 @@
 - + 추가 중
 
 ### 처리영상
-(https://github.com/dablro12/robotics/assets/54443308/10435d23-3b66-48c4-b91c-cdd68b6b367f)
+![output (1)](https://github.com/dablro12/robotics/assets/54443308/10435d23-3b66-48c4-b91c-cdd68b6b367f)
+
 
 
 ### ROBTOICS file list 
