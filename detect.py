@@ -58,7 +58,7 @@ while True:
     for data in detections.boxes.data.tolist():
         # confidence 추출 : 정확도를 의미
         confidence = data[4]
-        
+
         # confidence가 초기 세팅한 최소 confidence보다 높을떄만 추출
         if float(confidence) < CONFIDENCE_THRESHOLD:
             continue 
@@ -67,7 +67,7 @@ while True:
         xmin, ymin, xmax, ymax = int(data[0]), int(data[1]), int(data[2]), int(data[3])
         class_id = int(data[5])
         # results list에 프레임별로 저장 (x,y,w,h,confidence, class id)
-        results.append([[xmin, ymin, xmax-xmin, ymax - ymin], confidence, class_id])
+        results.append([[xmin, ymin, xmax-xmin, ymax - ymin], confidence, class_id, confidence]) #<---- confidence 확률 추가 
     # tracking 
     tracks = tracker.update_tracks(results, frame = frame)
     for track in tracks:
@@ -76,7 +76,6 @@ while True:
         # track id에 bounding 박스 라벨
         track_id = track.track_id
         ltrb = track.to_ltrb()
-        
         xmin, ymin, xmax, ymax = int(ltrb[0]), int(ltrb[1]), int(ltrb[2]), int(ltrb[3]), 
         
         ## track id에 따라서 중심점 그리기
@@ -93,6 +92,9 @@ while True:
         cv2.rectangle(frame, (xmin, ymin -20), (xmin + 20, ymin), GREEN, thickness = -1)
         cv2.putText(frame, f"{track_id} : {angle:.1f}'", (xmin + 5, ymin - 8), cv2.FONT_HERSHEY_SIMPLEX, 0.5, WHITE, 2)
         
+        ## confidence bounding box에 추가 
+        cv2.putText(frame, 
+                    f"P(x) : {(float(confidence)*100):.2f}%", (xmin , ymax+16), cv2.FONT_HERSHEY_SIMPLEX, 0.5, GREEN, 2)
     # 마지막 fps를 계산해서 시간을 계산
     end = datetime.datetime.now()
     
